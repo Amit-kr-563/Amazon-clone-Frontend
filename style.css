@@ -45,7 +45,8 @@
     display: flex;
     background-color: pink;
     height: 40px;
-    width: 620px;
+    width: 100%;
+    max-width: 600px;
     border-radius: 4px;
     justify-content: space-evenly;
 }
@@ -157,10 +158,11 @@
 .hero-section{
     background-image: url(hero.jpg);
     background-size: cover;
-    height: 500px;
+    background-position: center;
+    height: 60vh;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
 
 }
 .hero-message{
@@ -184,14 +186,16 @@
     display: flex;
     justify-content: space-evenly;
     background-color:#e2e7e6;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
+    gap: 15px; 
+    padding: 20px;
 }
 .box{
-    height: 360px;
-    width: 23%;
+  flex: 1 1 calc(25% - 30px); /* 4 box ek row me */
+    min-width: 250px; /* mobile ke liye minimum width */
+    max-width: 300px;
     background-color: white;
     padding: 20px 0px 15px;
-    margin-top: 15px;
 }
 .box-img{
     height: 300px;
@@ -221,9 +225,12 @@
 .panel2{
     background-color: #222f3d;
     color: white;
-    height: 400px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-evenly;
+    padding: 20px;
+    height: auto; /* fixed height hatao */
 }
 ul{
     margin-top: 20px;
@@ -265,4 +272,33 @@ ul p{
 }
 .copyright{
     padding-top: 5px;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .search {
+    max-width: 450px;
+  }
+  .box {
+    flex: 1 1 calc(50% - 20px); /* 2 box ek row me */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .search {
+    width: 90%;
+  }
+  .box {
+    flex: 1 1 100%; /* 1 box ek row me */
+  }
+  .panel2 {
+    flex-direction: column;
+    text-align: center;
+  }
 }
